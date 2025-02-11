@@ -30,8 +30,16 @@ getUserById(id, (err, user) => {
 
 const {getPokemonById} = require('./js-foundation/06-promises');
 
-getPokemonById(1)
-    .then(pokemon => console.log({pokemon}))
-    .catch(err => console.error('Por favor, revise el error:', err))
-    .finally(() => console.log('Proceso terminado'));
+// getPokemonById(1)
+//     .then(pokemon => console.log({pokemon}))
+//     .catch(err => console.error('Por favor, revise el error:', err))
+//     .finally(() => console.log('Proceso terminado'));
 
+
+const { buildLogger } = require('./plugins');
+const { log } = require('winston');
+
+const logger = buildLogger('app.js');
+
+logger.log('Hola mundo desde app.js');
+logger.error('Error en app.js');
